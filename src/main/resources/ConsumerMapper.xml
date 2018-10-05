@@ -5,15 +5,17 @@
 
 
 
+
+
+
    <insert id="additem" parameterType="springTest.Consumer">
-     INSERT INTO Consumer(username,item,date,money) VALUES (#{username},
-                                                   #{item},
-                                                   #{date},#{money})
+     INSERT INTO Consumer(username,item,date,money,userId,valid) VALUES (#{username}, #{item}, #{date},#{money},#{userId},#{valid})
+
     </insert>
 
 
     <select id="showtable" parameterType="String" resultType="java.util.Map">
-     select *FROM Consumer where username =#{username}
+     select *FROM Consumer where username=#{username}
     </select>
 
 

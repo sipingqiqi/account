@@ -5,37 +5,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import users.User;
 
-import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.List;
 
 
 @Service
 public class UserDaoImp implements UserDao {
 
-
+    @Autowired
     private SqlSession sqlSession;
 
-    @Autowired
-    public void setSqlSessionFactory(SqlSession sqlSession){
-
-        this.sqlSession =sqlSession;
-    }
+  
 
 
     public String addUser(User user){
         sqlSession.selectOne("addUsers",user);
-        return "ok";
+        return "success";
     }
 
 
-    public String login(User user){
-       if(sqlSession.selectOne("login",user)!=null) {
-           return "ok";
-       }else {
-           return "false";
-       }
+    public User login(User user){
+      User result=  sqlSession.selectOne("login",user);
+      return result;
+    }
+
+    public List<User> showTable(int id){
+        List<User>users = sqlSession.selectList("select",id);
+        return users;
     }
 
 

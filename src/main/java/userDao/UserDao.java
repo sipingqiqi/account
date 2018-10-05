@@ -2,10 +2,14 @@ package userDao;
 
 import users.User;
 
-public interface UserDao {
+import java.util.List;
 
-   String login (User user);
+
+public interface UserDao {
+    User login (User user);
 
    String addUser(User user);
+
+    List<User> showTable(int id);
 
 }

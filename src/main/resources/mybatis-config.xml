@@ -8,9 +8,9 @@
 
 
     <mappers>
-
         <mapper resource="ConsumerMapper.xml"/>
         <mapper resource="UserMapper.xml"/>
+
     </mappers>
 
 
